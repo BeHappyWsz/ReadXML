@@ -84,7 +84,7 @@ public class SAXTest {
 			Transformer tr = handler.getTransformer();
 			tr.setOutputProperty(OutputKeys.ENCODING,"UTF-8");//…Ë÷√±‡¬Î
 			tr.setOutputProperty(OutputKeys.INDENT,"yes");//…Ë÷√ªª––
-			File file = new File("newMsg.xml");
+			File file = new File("sax.xml");
 			if(!file.exists()) {
 				file.createNewFile();
 			}

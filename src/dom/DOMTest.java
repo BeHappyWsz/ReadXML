@@ -107,7 +107,7 @@ public class DOMTest {
 			Transformer tf = tff.newTransformer();
 			tf.setOutputProperty(OutputKeys.INDENT,"yes");
 			//生成xml文件
-			tf.transform(new DOMSource(document), new StreamResult(new File("messagess1.xml")));
+			tf.transform(new DOMSource(document), new StreamResult(new File("dom.xml")));
 		} catch (TransformerConfigurationException e) {
 			e.printStackTrace();
 		}catch (TransformerException e) {

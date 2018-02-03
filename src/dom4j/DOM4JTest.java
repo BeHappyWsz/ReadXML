@@ -82,7 +82,7 @@ public class DOM4JTest {
 		OutputFormat format = OutputFormat.createPrettyPrint();
 		format.setEncoding("UTF-8");//设置编码，默认为UTF-8
 		//生成xml文件
-		File file = new File("newFile.xml");
+		File file = new File("dom4j.xml");
 		XMLWriter writer = null;
 		try {
 			writer = new XMLWriter(new FileOutputStream(file),format);

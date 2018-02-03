@@ -1,7 +1,9 @@
 package jdom;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,8 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
 import domain.Message;
 
@@ -23,7 +27,8 @@ import domain.Message;
 public class JDOMTest {
 
 	public static void main(String[] args) {
-		readXML();
+//		readXML();
+		createXML();
 	}
 
 	static List<Message> list = new ArrayList<Message>();
@@ -78,6 +83,33 @@ public class JDOMTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	static void createXML() {
+		//1.根节点-节点属性
+		Element messagess = new Element("messagess");
+		messagess.setAttribute("version","2.0");
+		//2.document对象
+		Document document = new Document(messagess);
+		//msg节点
+		Element msg = new Element("msg");
+		msg.setAttribute("id", "1");
+		messagess.addContent(msg);
+		//msg节点内部属性-content
+		Element content = new Element("content");
+		content.setText("<script/>hoias<vixushw/?>.saudhiausd");
+		msg.addContent(content);
 		
+		//3.XMLOutputter对象-将document对象转换为xml文档
+		Format format = Format.getCompactFormat();
+		format.setIndent("");//设置换行
+		format.setEncoding("UTF-8");//编码
+		//转译设置??
+		XMLOutputter outputer = new XMLOutputter(format);
+		try {
+			outputer.output(document, new FileOutputStream(new File("jdom.xml")));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
