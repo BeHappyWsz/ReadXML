@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><messagess>
+<msg id="1">
+<content>信息1</content>
+<user>用户1</user>
+<time>2018-2-2</time>
+</msg>
+<msg id="2">
+<content>信息2</content>
+<user>用户2</user>
+</msg>
+</messagess>
